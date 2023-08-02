@@ -2,6 +2,7 @@
     <div class="row">
         <!-- Column -->
         <div class="col-sm-12">
+            <div class="alert" role="alert" style="display: none;"></div>
             <div class="card">
                 <div class="card-body">
                     <div class="row">
@@ -87,26 +88,38 @@
                 body: JSON.stringify(data),
             })
             .then(response => {
-                console.log(response);
                 // Check if the response has status 200 (OK)
                 if (response.ok) {
                     // The request was successful
-                    console.log("Data submitted successfully!");
+                    return response.json(); // Parse the JSON data and pass it to the next `.then()`
                 } else {
                     // The request failed
-                    console.error("Error submitting data.");
+                    throw new Error("Error submitting data.");
                 }
+            })
+            .then(data => {
 
-                // Additional error handling for non-OK responses
-                if (!response.ok) {
-                    response.json().then(errorData => {
-                        console.error("Error details:", errorData);
-                    });
-                }
+                // Display success message in the alert
+                const alertDiv = document.querySelector('.alert');
+                alertDiv.classList.add('alert-primary');
+                alertDiv.innerText = "Data submitted successfully!";
+                alertDiv.style.display = 'block'; // Show the alert
+
+                // Add a timeout before redirecting to the dashboard
+                setTimeout(() => {
+                    window.location.href = '<?php echo base_url("dashboard"); ?>';
+                }, 3000); // Delay for 3 seconds (adjust as needed)
             })
             .catch(error => {
                 // Handle any errors that occurred during the fetch() request
+
                 console.error("Error:", error);
+
+                // Display error message in the alert
+                const alertDiv = document.querySelector('.alert');
+                alertDiv.classList.add('alert-danger');
+                alertDiv.innerText = "Error submitting data.";
+                alertDiv.style.display = 'block'; // Show the alert
             });
     }
 
@@ -140,4 +153,15 @@
 
     // Add an event listener to the "Submit" button
     document.getElementById("submitButton").addEventListener("click", handleSubmit);
+
+    // Add an event listener to hide the alert when clicked
+    document.querySelector('.alert').addEventListener('click', function() {
+        this.style.display = 'none'; // Hide the alert when clicked
+        // Redirect to the dashboard page after a successful submission
+    });
+
+    // Optionally, hide the alert after a certain time (e.g., 5 seconds)
+    setTimeout(function() {
+        document.querySelector('.alert').style.display = 'none';
+    }, 5000); // Hide the alert after 5 seconds (adjust as needed)
 </script>

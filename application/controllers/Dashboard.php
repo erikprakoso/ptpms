@@ -122,6 +122,7 @@ class Dashboard extends CI_Controller
             // Return a response to the client (optional)
             // You can return a JSON response to indicate the success or failure of the update
             $response = array(
+                'code' => $result ? 'success' : 'error', // 'success' or 'error
                 'success' => $result,
                 'message' => $result ? 'Data updated successfully!' : 'Failed to update data!'
             );
