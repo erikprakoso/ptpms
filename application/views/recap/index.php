@@ -30,11 +30,11 @@
                                         <td><?php echo $scale->create_date; ?></td>
                                         <td><?php echo $scale->truck_number; ?></td>
                                         <td><?php echo $scale->driver_name; ?></td>
-                                        <td><?php echo $scale->item_name; ?></td>
-                                        <td><?php echo $scale->destination; ?></td>
+                                        <td><?php echo isset($scale->item_name) ? $scale->item_name : 'No Data'; ?></td>
+                                        <td><?php echo isset($scale->destination) ? $scale->destination : 'No Data'; ?></td>
                                         <td><?php echo $scale->bruto; ?></td>
-                                        <td><?php echo $scale->tara; ?></td>
-                                        <td><?php echo $scale->netto; ?></td>
+                                        <td><?php echo isset($scale->tara) ? $scale->tara : 'No Data'; ?></td>
+                                        <td><?php echo isset($scale->netto) ? $scale->netto : 'No Data'; ?></td>
                                     </tr>
                                 <?php endforeach; ?>
                             </tbody>
