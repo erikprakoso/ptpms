@@ -21,6 +21,7 @@
                                     <th class="border-top-0">Bruto</th>
                                     <th class="border-top-0">Tara</th>
                                     <th class="border-top-0">Netto</th>
+                                    <th class="border-top-0">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -35,6 +36,9 @@
                                         <td><?php echo $scale->bruto; ?></td>
                                         <td><?php echo isset($scale->tara) ? $scale->tara : 'No Data'; ?></td>
                                         <td><?php echo isset($scale->netto) ? $scale->netto : 'No Data'; ?></td>
+                                        <td>
+                                        <button class="btn btn-primary btn-sm" onclick="openPrintWindow('<?php echo base_url('recap/print/' . $scale->id); ?>')">Print</button>
+                                        </td>
                                     </tr>
                                 <?php endforeach; ?>
                             </tbody>
@@ -46,3 +50,11 @@
         </div>
     </div>
 </div>
+<script>
+    function openPrintWindow(url) {
+        var printWindow = window.open(url, '_blank', 'toolbar=0,location=0,menubar=0');
+        printWindow.onload = function () {
+            printWindow.print();
+        };
+    }
+</script>

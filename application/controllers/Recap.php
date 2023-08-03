@@ -11,4 +11,10 @@ class Recap extends CI_Controller
         $data['breadcrumb'] = 'Rekap';
         $this->load->view('template', $data);
     }
+
+    public function print($id)
+    {
+        $data['scale'] = $this->db->get_where('scales', ['id' => $id])->row();
+        $this->load->view('recap/print', $data);
+    }
 }

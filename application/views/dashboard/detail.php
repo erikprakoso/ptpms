@@ -49,7 +49,7 @@
                     <div class="row justify-content-end">
                         <div class="col-md-2">
                             <button type="button" class="btn btn-primary btn-block" id="submitButton">Submit</button>
-                            <button type="button" class="btn btn-success btn-block text-white">Print</button>
+                            <!-- <button type="button" class="btn btn-success btn-block text-white">Print</button> -->
                             <button type="button" class="btn btn-warning btn-block" id="resetButton">Reset</button>
                         </div>
                     </div>

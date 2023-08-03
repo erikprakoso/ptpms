@@ -14,8 +14,10 @@
         }
 
         .container {
-            width: 600px; /* Sesuaikan lebar container sesuai dengan orientasi landscape */
-            margin: 20px auto; /* Tambahkan margin atas dan bawah */
+            width: 600px;
+            /* Sesuaikan lebar container sesuai dengan orientasi landscape */
+            margin: 20px auto;
+            /* Tambahkan margin atas dan bawah */
         }
 
         .header {
@@ -51,7 +53,8 @@
 
         .footer {
             margin-top: 20px;
-            text-align: left; /* Memindahkan teks ke sebelah kiri */
+            text-align: left;
+            /* Memindahkan teks ke sebelah kiri */
         }
 
         .signatures {
@@ -84,19 +87,19 @@
             <table style="border-collapse: collapse; border: none;">
                 <tr style="border: none;">
                     <td style="border: none;">No Tiket:</td>
-                    <td style="border: none;"></td>
+                    <td style="border: none;"><?php echo $scale->id; ?></td>
                     <td style="border: none;">Supir:</td>
-                    <td style="border: none;"></td>
+                    <td style="border: none;"><?php echo $scale->driver_name; ?></td>
                 </tr>
                 <tr>
                     <td style="border: none;">No Truk:</td>
-                    <td style="border: none;"></td>
+                    <td style="border: none;"><?php echo $scale->truck_number; ?></td>
                     <td style="border: none;">Relasi:</td>
-                    <td style="border: none;"></td>
+                    <td style="border: none;"><?php echo $scale->destination; ?></td>
                 </tr>
                 <tr>
                     <td style="border: none;">Nama barang:</td>
-                    <td style="border: none;" colspan="3"></td>
+                    <td style="border: none;" colspan="3"><?php echo $scale->item_name; ?></td>
                 </tr>
             </table>
             <br>
@@ -111,23 +114,23 @@
                 </tr>
                 <tr>
                     <td>BRUTO</td>
+                    <td><?php echo $scale->create_date; ?></td>
                     <td></td>
-                    <td></td>
-                    <td></td>
+                    <td><?php echo $scale->bruto; ?></td>
                     <td rowspan="3"></td>
                     <td rowspan="3"></td>
                 </tr>
                 <tr>
                     <td>TARA</td>
+                    <td><?php echo $scale->create_date; ?></td>
                     <td></td>
-                    <td></td>
-                    <td></td>
+                    <td><?php echo $scale->tara; ?></td>
                 </tr>
                 <tr>
                     <td>NETTO</td>
+                    <td><?php echo $scale->create_date; ?></td>
                     <td></td>
-                    <td></td>
-                    <td></td>
+                    <td><?php echo $scale->netto; ?></td>
                 </tr>
             </table>
             <div class="signatures">
@@ -158,6 +161,16 @@
             <p>Keterangan:</p>
         </div>
     </div>
+    <script>
+        function printScale() {
+            // var printWindow = window.open('', '_blank', 'toolbar=0,location=0,menubar=0');
+            var printWindow = window.open('', 'toolbar=0,location=0,menubar=0');
+            printWindow.document.open();
+            printWindow.document.write('<?php echo str_replace(array("\n", "\r", "'"), array(" ", "", "\\'"), addslashes(file_get_contents("print.php"))); ?>');
+            printWindow.document.close();
+            printWindow.print();
+        }
+    </script>
 </body>
 
 </html>
