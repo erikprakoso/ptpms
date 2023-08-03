@@ -79,8 +79,24 @@ class Dashboard extends CI_Controller
         $update_result = $this->scales_model->update($id, $data);
 
         if ($update_result) {
-            // Update successful
-            redirect('dashboard');
+            $get_row = $this->scales_model->get($id);
+            if ($get_row) {
+                if ($get_row->tara == null) {
+                    redirect('dashboard');
+                } else {
+                    $tara = $get_row->tara;
+                    $netto = $bruto - $tara;
+                    $data = array(
+                        'netto' => $netto
+                    );
+                    $this->scales_model->update($id, $data);
+                    // Update successful
+                    redirect('dashboard');
+                }
+            } else {
+                // Update successful
+                redirect('dashboard');
+            }
         } else {
             // Update failed
             // Handle the update failure here
