@@ -23,11 +23,11 @@
 
                             <div class="form-group">
                                 <label for="itemNameInput">Nama Barang</label>
-                                <input type="text" class="form-control" id="itemNameInput" name="itemNameInput" placeholder="Nama Barang">
+                                <input type="text" class="form-control" id="itemNameInput" name="itemNameInput" placeholder="Nama Barang" value="<?php echo isset($scale->item_name) ? $scale->item_name : ''; ?>">
                             </div>
                             <div class="form-group">
                                 <label for="destinationInput">Relasi(Tujuan)</label>
-                                <input type="text" class="form-control" id="destinationInput" name="destinationInput" placeholder="Relasi(Tujuan)">
+                                <input type="text" class="form-control" id="destinationInput" name="destinationInput" placeholder="Relasi(Tujuan)" value="<?php echo isset($scale->destination) ? $scale->destination : ''; ?>">
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -38,11 +38,11 @@
                             </div>
                             <div class="form-group">
                                 <label for="taraInput">Tara</label>
-                                <input type="number" class="form-control" id="taraInput" name="taraInput" placeholder="Tara">
+                                <input type="number" class="form-control" id="taraInput" name="taraInput" placeholder="Tara" value="<?php echo isset($scale->tara) ? $scale->tara : ''; ?>">
                             </div>
                             <div class="form-group">
                                 <label for="nettoInput">Netto</label>
-                                <input type="number" class="form-control" id="nettoInput" name="nettoInput" placeholder="Netto">
+                                <input type="number" class="form-control" id="nettoInput" name="nettoInput" placeholder="Netto" value="<?php echo isset($scale->netto) ? $scale->netto : ''; ?>">
                             </div>
                         </div>
                     </div>
