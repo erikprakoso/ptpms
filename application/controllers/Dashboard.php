@@ -26,8 +26,27 @@ class Dashboard extends CI_Controller
             $this->form_validation->set_rules('driveNameInput', 'Nama Sopir', 'required');
             $this->form_validation->set_rules('brutoInput', 'Bruto', 'required');
             if ($this->form_validation->run() == TRUE) {
+                // Get the input data from the POST request
+                $createDate = $this->input->post('createDateInput');
+                $truckNumber = $this->input->post('truckNumberInput');
+                $driverName = $this->input->post('driveNameInput');
+                $bruto = $this->input->post('brutoInput');
+
+                // Create a DateTime object with the desired timezone ("Asia/Jakarta")
+                $timezone = new DateTimeZone('Asia/Jakarta');
+                $currentTime = new DateTime('now', $timezone);
+
+                // Create an associative array with the data to be inserted
+                $data = array(
+                    'truck_number' => $truckNumber,
+                    'driver_name' => $driverName,
+                    'bruto' => $bruto,
+                    'create_date' => $createDate,
+                    'create_time' => $currentTime->format('H:i:s')
+                );
+
                 $this->load->model('scales_model');
-                $this->scales_model->create();
+                $this->scales_model->create($data);
                 redirect('dashboard');
             }
         }
@@ -67,12 +86,14 @@ class Dashboard extends CI_Controller
         $driverName = $this->input->post('driveNameInput');
         $bruto = $this->input->post('brutoInput');
 
+
+
         // Create an associative array with the data to be updated
         $data = array(
-            'create_date' => $createDate,
             'truck_number' => $truckNumber,
             'driver_name' => $driverName,
-            'bruto' => $bruto
+            'bruto' => $bruto,
+            'create_date' => $createDate
         );
 
         // Update the data in the 'scales' table with the given id
@@ -122,13 +143,22 @@ class Dashboard extends CI_Controller
             $destination = $postData['destinationInput'];
             $tara = $postData['taraInput'];
             $netto = $postData['nettoInput'];
+            $updateDate = $postData['updateDateInput'];
+            $information = $postData['informationInput'];
+
+            // Create a DateTime object with the desired timezone ("Asia/Jakarta")
+            $timezone = new DateTimeZone('Asia/Jakarta');
+            $currentTime = new DateTime('now', $timezone);
 
             // Create an associative array with the data to be updated
             $data = array(
                 'item_name' => $itemName,
                 'destination' => $destination,
                 'tara' => $tara,
-                'netto' => $netto
+                'netto' => $netto,
+                'update_date' => $updateDate,
+                'update_time' => $currentTime->format('H:i:s'),
+                'information' => $information
             );
 
             // Call the model's update_weight method to update the data in the database

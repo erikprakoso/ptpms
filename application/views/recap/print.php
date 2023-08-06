@@ -77,7 +77,7 @@
                 <h3>PELABUHAN MUNDAM SEJAHTERA - DUMAI</h3>
                 <h3>KOTA DUMAI</h3>
             </div>
-            <p>Printed on</p>
+            <p><?php echo $scale->update_date; ?> <?php echo $scale->update_time; ?></p>
         </div>
 
         <div class="body">
@@ -86,19 +86,24 @@
             </h4>
             <table style="border-collapse: collapse; border: none;">
                 <tr style="border: none;">
-                    <td style="border: none;">No Tiket:</td>
+                    <td style="border: none; width: 100px;">No Tiket</td>
+                    <td style="border: none;">:</td>
                     <td style="border: none;"><?php echo $scale->id; ?></td>
-                    <td style="border: none;">Supir:</td>
+                    <td style="border: none; width: 50px;">Supir</td>
+                    <td style="border: none;">:</td>
                     <td style="border: none;"><?php echo $scale->driver_name; ?></td>
                 </tr>
                 <tr>
-                    <td style="border: none;">No Truk:</td>
+                    <td style="border: none; width: 100px;">No Truk</td>
+                    <td style="border: none;">:</td>
                     <td style="border: none;"><?php echo $scale->truck_number; ?></td>
-                    <td style="border: none;">Relasi:</td>
+                    <td style="border: none; width: 50px;">Relasi</td>
+                    <td style="border: none;">:</td>
                     <td style="border: none;"><?php echo $scale->destination; ?></td>
                 </tr>
                 <tr>
-                    <td style="border: none;">Nama barang:</td>
+                    <td style="border: none;">Nama barang</td>
+                    <td style="border: none;">:</td>
                     <td style="border: none;" colspan="3"><?php echo $scale->item_name; ?></td>
                 </tr>
             </table>
@@ -115,21 +120,21 @@
                 <tr>
                     <td>BRUTO</td>
                     <td><?php echo $scale->create_date; ?></td>
-                    <td></td>
+                    <td><?php echo $scale->create_time; ?></td>
                     <td><?php echo $scale->bruto; ?></td>
                     <td rowspan="3"></td>
                     <td rowspan="3"></td>
                 </tr>
                 <tr>
                     <td>TARA</td>
-                    <td><?php echo $scale->create_date; ?></td>
-                    <td></td>
+                    <td><?php echo $scale->update_date; ?></td>
+                    <td><?php echo $scale->update_time; ?></td>
                     <td><?php echo $scale->tara; ?></td>
                 </tr>
                 <tr>
                     <td>NETTO</td>
-                    <td><?php echo $scale->create_date; ?></td>
-                    <td></td>
+                    <td><?php echo $scale->update_date; ?></td>
+                    <td><?php echo $scale->update_time; ?></td>
                     <td><?php echo $scale->netto; ?></td>
                 </tr>
             </table>
@@ -158,7 +163,7 @@
         </div>
 
         <div class="footer">
-            <p>Keterangan:</p>
+            <p>Keterangan: <?php echo $scale->information; ?></p>
         </div>
     </div>
     <script>

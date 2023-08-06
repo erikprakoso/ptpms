@@ -29,9 +29,18 @@
                                 <label for="destinationInput">Relasi(Tujuan)</label>
                                 <input type="text" class="form-control" id="destinationInput" name="destinationInput" placeholder="Relasi(Tujuan)" value="<?php echo isset($scale->destination) ? $scale->destination : ''; ?>">
                             </div>
+                            <div class="form-group">
+                                <label for="destinationInput">Keterangan</label>
+                                <textarea class="form-control" id="informationInput" name="informationInput" rows="3"><?php echo isset($scale->information) ? $scale->information : ''; ?></textarea>
+                            </div>
+
                         </div>
                         <div class="col-md-6">
                             <h4 class="card-title">Berat Barang Masuk</h4>
+                            <div class="form-group">
+                                <label for="updateDateInput">Tanggal</label>
+                                <input type="date" class="form-control" id="updateDateInput" name="updateDateInput" value="<?php echo isset($scale->update_date) ? $scale->update_date : ''; ?>">
+                            </div>
                             <div class="form-group">
                                 <label for="brutoInput">Bruto</label>
                                 <input type="number" class="form-control" id="brutoInput" name="brutoInput" placeholder="Bruto" value="<?php echo $scale->bruto; ?>" readonly>
@@ -67,13 +76,17 @@
         const destination = document.getElementById("destinationInput").value;
         const tara = document.getElementById("taraInput").value;
         const netto = document.getElementById("nettoInput").value;
+        const updateDate = document.getElementById("updateDateInput").value;
+        const information = document.getElementById("informationInput").value;
 
         // Create a data object to send with the request
         const data = {
             itemNameInput: itemName,
             destinationInput: destination,
             taraInput: tara,
-            nettoInput: netto
+            nettoInput: netto,
+            updateDateInput: updateDate,
+            informationInput: information
         };
 
         console.log(data);
@@ -143,12 +156,16 @@
         const destinationInput = document.getElementById("destinationInput");
         const taraInput = document.getElementById("taraInput");
         const nettoInput = document.getElementById("nettoInput");
+        const updateDateInput = document.getElementById("updateDateInput");
+        const informationInput = document.getElementById("informationInput");
 
         // Reset the values of the input fields
         itemNameInput.value = "";
         destinationInput.value = "";
         taraInput.value = "";
         nettoInput.value = "";
+        updateDateInput.value = "";
+        informationInput.value = "";
     });
 
     // Add an event listener to the "Submit" button

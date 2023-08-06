@@ -189,7 +189,10 @@
     <script>
         $(document).ready(function() {
             $('#dataTable').DataTable({
-                // Additional options and configurations can be added here
+                "order": [
+                    [0, "desc"]
+                ] // Urutkan kolom pertama (indeks 0) secara descending
+                // Anda dapat menambahkan opsi dan konfigurasi tambahan lainnya di sini
             });
         });
     </script>

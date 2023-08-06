@@ -3,22 +3,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Scales_model extends CI_Model
 {
-    public function create()
+    public function create($data)
     {
-        // Get the input data from the POST request
-        $createDate = $this->input->post('createDateInput');
-        $truckNumber = $this->input->post('truckNumberInput');
-        $driverName = $this->input->post('driveNameInput');
-        $bruto = $this->input->post('brutoInput');
-
-        // Create an associative array with the data to be inserted
-        $data = array(
-            'create_date' => $createDate,
-            'truck_number' => $truckNumber,
-            'driver_name' => $driverName,
-            'bruto' => $bruto
-        );
-
         // Insert the data into the 'incoming_goods' table
         $this->db->insert('scales', $data);
 
