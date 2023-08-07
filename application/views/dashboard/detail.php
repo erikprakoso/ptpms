@@ -27,7 +27,11 @@
                             </div>
                             <div class="form-group">
                                 <label for="destinationInput">Relasi(Tujuan)</label>
-                                <input type="text" class="form-control" id="destinationInput" name="destinationInput" placeholder="Relasi(Tujuan)" value="<?php echo isset($scale->destination) ? $scale->destination : ''; ?>">
+                                <select class="form-control" name="destinationInput" id="destinationInput">
+                                    <?php foreach ($destinations as $destination): ?>
+                                        <option value="<?php echo $destination->id; ?>"><?php echo $destination->name; ?></option>
+                                    <?php endforeach; ?>
+                                </select>
                             </div>
                             <div class="form-group">
                                 <label for="destinationInput">Keterangan</label>

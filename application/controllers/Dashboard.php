@@ -60,6 +60,7 @@ class Dashboard extends CI_Controller
     {
         $this->load->model('scales_model');
         $data['scale'] = $this->scales_model->get($id);
+        $data['destinations'] = $this->db->get('destinations')->result();
         $data['main_view'] = 'dashboard/detail';
         $data['title'] = 'PT PMS - Detail Barang Masuk';
         $data['breadcrumb'] = 'Detail Barang Masuk';

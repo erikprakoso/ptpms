@@ -117,7 +117,7 @@
                     <ul id="sidebarnav">
                         <!-- User Profile-->
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?= base_url('dashboard'); ?>" aria-expanded="false"><i class="me-3 far fa-clock fa-fw" aria-hidden="true"></i><span class="hide-menu">Dashboard</span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?= base_url('recap'); ?>" aria-expanded="false"><i class="me-3 far fa-list fa-fw" aria-hidden="true"></i><span class="hide-menu">Rekap</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?= base_url('recap'); ?>" aria-expanded="false"><i class="me-3 far fa-bookmark fa-fw" aria-hidden="true"></i><span class="hide-menu">Rekap</span></a></li>
                     </ul>
 
                 </nav>
