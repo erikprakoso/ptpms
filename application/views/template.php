@@ -197,6 +197,15 @@
         });
     </script>
 
+    <script>
+        $('#destinationInput').on('change', function() {
+            if ($(this).val() === 'add_new') {
+                $('#newDestinationInput').show();
+            } else {
+                $('#newDestinationInput').hide();
+            }
+        });
+    </script>
 </body>
 
 </html>

@@ -28,10 +28,20 @@
                             <div class="form-group">
                                 <label for="destinationInput">Relasi(Tujuan)</label>
                                 <select class="form-control" name="destinationInput" id="destinationInput">
-                                    <?php foreach ($destinations as $destination): ?>
-                                        <option value="<?php echo $destination->id; ?>"><?php echo $destination->name; ?></option>
+                                    <?php foreach ($destinations as $destination) : ?>
+                                        <option value="<?php echo $destination->name; ?>" <?php echo ($destination->name == $scale->destination) ? 'selected' : ''; ?>>
+                                            <?php echo $destination->name; ?>
+                                        </option>
                                     <?php endforeach; ?>
+                                    <option value="add_new">Tambah Baru</option>
                                 </select>
+                            </div>
+
+                            <div id="newDestinationInput" style="display: none;">
+                                <div class="form-group">
+                                    <label for="newDestinationName">Nama Relasi Baru</label>
+                                    <input type="text" class="form-control" name="newDestinationName" id="newDestinationName">
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label for="destinationInput">Keterangan</label>
@@ -77,11 +87,18 @@
     function handleSubmit() {
         // Get the values of the input fields
         const itemName = document.getElementById("itemNameInput").value;
-        const destination = document.getElementById("destinationInput").value;
+        const originalDestination = document.getElementById("destinationInput").value;
         const tara = document.getElementById("taraInput").value;
         const netto = document.getElementById("nettoInput").value;
         const updateDate = document.getElementById("updateDateInput").value;
         const information = document.getElementById("informationInput").value;
+
+        let destination; // Define the destination variable in a higher scope
+        if (originalDestination == "add_new") {
+            destination = document.getElementById("newDestinationName").value;
+        } else {
+            destination = originalDestination;
+        }
 
         // Create a data object to send with the request
         const data = {
@@ -92,8 +109,6 @@
             updateDateInput: updateDate,
             informationInput: information
         };
-
-        console.log(data);
 
         // Send the data via a POST request using fetch()
         fetch(`<?= base_url('dashboard/update_weight/' . $scale->id); ?>`, {

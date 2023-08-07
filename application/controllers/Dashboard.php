@@ -151,6 +151,17 @@ class Dashboard extends CI_Controller
             $timezone = new DateTimeZone('Asia/Jakarta');
             $currentTime = new DateTime('now', $timezone);
 
+            $this->load->model('destinations_model');
+            $destination_row = $this->destinations_model->get($destination);
+            if ($destination_row) {
+                // Do nothing
+            } else {
+                $formdata = array(
+                    'name' => $destination
+                );
+                $this->destinations_model->create($formdata);
+            }
+
             // Create an associative array with the data to be updated
             $data = array(
                 'item_name' => $itemName,
