@@ -14,7 +14,7 @@
         }
 
         .container {
-            width: 600px;
+            width: 700px;
             /* Sesuaikan lebar container sesuai dengan orientasi landscape */
             margin: 20px auto;
             /* Tambahkan margin atas dan bawah */
