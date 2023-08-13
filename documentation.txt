@@ -1,0 +1,6 @@
++1. simpan project ptpms ke xampp/htdocs
++2. buka xampp
++3. buka localhost/phpmyadmin
++4. buat database dengan nama db_ptpms
++5. import database db_ptpms.sql
++6. buka localhost/ptpms
