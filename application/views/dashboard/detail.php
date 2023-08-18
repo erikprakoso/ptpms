@@ -33,6 +33,7 @@
                                             <?php echo $destination->name; ?>
                                         </option>
                                     <?php endforeach; ?>
+                                    <option value="">Pilih Relasi</option>
                                     <option value="add_new">Tambah Baru</option>
                                 </select>
                             </div>

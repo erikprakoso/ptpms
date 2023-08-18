@@ -74,8 +74,8 @@
     <div class="container">
         <div class="header">
             <div>
-                <h3>PELABUHAN MUNDAM SEJAHTERA - DUMAI</h3>
-                <h3>KOTA DUMAI</h3>
+                <h3>PELABUHAN MUDAH SENANG - KU</h3>
+                <h3>KOTA KU</h3>
             </div>
             <p><?php echo $scale->update_date; ?> <?php echo $scale->update_time; ?></p>
         </div>
@@ -121,7 +121,7 @@
                     <td>BRUTO</td>
                     <td><?php echo $scale->create_date; ?></td>
                     <td><?php echo $scale->create_time; ?></td>
-                    <td><?php echo $scale->bruto; ?></td>
+                    <td style="text-align: center;"><?php echo $scale->bruto; ?></td>
                     <td rowspan="3"></td>
                     <td rowspan="3"></td>
                 </tr>
@@ -129,13 +129,13 @@
                     <td>TARA</td>
                     <td><?php echo $scale->update_date; ?></td>
                     <td><?php echo $scale->update_time; ?></td>
-                    <td><?php echo $scale->tara; ?></td>
+                    <td style="text-align: center;"><?php echo $scale->tara; ?></td>
                 </tr>
                 <tr>
                     <td>NETTO</td>
                     <td><?php echo $scale->update_date; ?></td>
                     <td><?php echo $scale->update_time; ?></td>
-                    <td><?php echo $scale->netto; ?></td>
+                    <td style="text-align: center;"><?php echo $scale->netto; ?></td>
                 </tr>
             </table>
             <div class="signatures">
