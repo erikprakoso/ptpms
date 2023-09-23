@@ -5,12 +5,21 @@
     <title>Print Struk Penimbangan</title>
     <style>
         @page {
-            size: landscape;
+            size: 21cm 29.7cm;
+            /* Ukuran halaman A4 potrait (21cm x 29.7cm) */
+            margin: 1.5cm 2.54cm 0cm 2.54cm;
+            /* Outside, Top, Gutter, Inside, Right */
+            /* Jika Anda ingin mengubah orientasi ke potrait, gantilah "portrait" dengan "landscape" */
+            /* orientation: landscape; */
         }
 
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
+            margin: 0;
+            /* Hapus margin bawaan pada halaman */
+            padding: 0;
+            /* Hapus padding bawaan pada halaman */
         }
 
         .container {

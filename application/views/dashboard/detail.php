@@ -33,6 +33,7 @@
                                             <?php echo $destination->name; ?>
                                         </option>
                                     <?php endforeach; ?>
+                                    <option value="">Pilih Relasi</option>
                                     <option value="add_new">Tambah Baru</option>
                                 </select>
                             </div>
@@ -57,11 +58,11 @@
                             </div>
                             <div class="form-group">
                                 <label for="brutoInput">Bruto</label>
-                                <input type="number" class="form-control" id="brutoInput" name="brutoInput" placeholder="Bruto" value="<?php echo $scale->bruto; ?>" readonly>
+                                <input type="number" class="form-control" id="brutoInput" name="brutoInput" placeholder="Bruto" value="<?php echo $scale->tara; ?>">
                             </div>
                             <div class="form-group">
                                 <label for="taraInput">Tara</label>
-                                <input type="number" class="form-control" id="taraInput" name="taraInput" placeholder="Tara" value="<?php echo isset($scale->tara) ? $scale->tara : ''; ?>">
+                                <input type="number" class="form-control" id="taraInput" name="taraInput" placeholder="Tara" value="<?php echo isset($scale->bruto) ? $scale->bruto : ''; ?>" readonly>
                             </div>
                             <div class="form-group">
                                 <label for="nettoInput">Netto</label>
@@ -88,7 +89,7 @@
         // Get the values of the input fields
         const itemName = document.getElementById("itemNameInput").value;
         const originalDestination = document.getElementById("destinationInput").value;
-        const tara = document.getElementById("taraInput").value;
+        const tara = document.getElementById("brutoInput").value;
         const netto = document.getElementById("nettoInput").value;
         const updateDate = document.getElementById("updateDateInput").value;
         const information = document.getElementById("informationInput").value;
@@ -156,10 +157,10 @@
     }
 
     // Add an event listener to the "Tara" input field
-    document.getElementById("taraInput").addEventListener("input", function() {
+    document.getElementById("brutoInput").addEventListener("input", function() {
         // Get the values of "Bruto" and "Tara"
-        const brutoValue = parseFloat(document.getElementById("brutoInput").value);
-        const taraValue = parseFloat(this.value);
+        const taraValue = parseFloat(document.getElementById("taraInput").value);
+        const brutoValue = parseFloat(this.value);
 
         // Calculate the "Netto" value
         const nettoValue = brutoValue - taraValue;
