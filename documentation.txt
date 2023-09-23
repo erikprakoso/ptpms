@@ -1,6 +1,35 @@
+<<<<<<< HEAD
 +1. simpan project ptpms ke xampp/htdocs
 +2. buka xampp
 +3. buka localhost/phpmyadmin
 +4. buat database dengan nama db_ptpms
 +5. import database db_ptpms.sql
 +6. buka localhost/ptpms
+=======
+-- db_ptpms.destinantions definition
+
+CREATE TABLE `destinantions` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- db_ptpms.scales definition
+
+CREATE TABLE `scales` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `truck_number` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `driver_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `item_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `destination` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `information` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
+  `bruto` int DEFAULT NULL,
+  `tara` int DEFAULT NULL,
+  `netto` int DEFAULT NULL,
+  `create_date` date DEFAULT NULL,
+  `update_date` date DEFAULT NULL,
+  `create_time` time DEFAULT NULL,
+  `update_time` time DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+>>>>>>> 3c51bdc8ff748d026f95f974b8466e9203670d4a
