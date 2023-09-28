@@ -80,7 +80,7 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="container" style="width: calc(21cm - 2.54cm - 2.54cm); margin: 20px auto;">
         <div class="header">
             <div>
                 <h3>PELABUHAN MUDAH SENANG - KU</h3>
@@ -130,21 +130,25 @@
                     <td>BRUTO</td>
                     <td><?php echo $scale->create_date; ?></td>
                     <td><?php echo $scale->create_time; ?></td>
-                    <td style="text-align: center;"><?php echo $scale->bruto; ?></td>
-                    <td rowspan="3"></td>
-                    <td rowspan="3"></td>
+                    <td style="text-align: center;"><?php echo number_format($scale->bruto, 0, ',', '.'); ?></td>
+                    <td></td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td>TARA</td>
                     <td><?php echo $scale->update_date; ?></td>
                     <td><?php echo $scale->update_time; ?></td>
-                    <td style="text-align: center;"><?php echo $scale->tara; ?></td>
+                    <td style="text-align: center;"><?php echo number_format($scale->tara, 0, ',', '.'); ?></td>
+                    <td></td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td>NETTO</td>
                     <td><?php echo $scale->update_date; ?></td>
                     <td><?php echo $scale->update_time; ?></td>
-                    <td style="text-align: center;"><?php echo $scale->netto; ?></td>
+                    <td style="text-align: center;"><?php echo number_format($scale->netto, 0, ',', '.'); ?></td>
+                    <td></td>
+                    <td></td>
                 </tr>
             </table>
             <div class="signatures">
